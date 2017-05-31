@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" ></script>
+    <title>Tiempo de Lunch</title>
+</head>
+
+<body>
+     <div data-role="page" id="inicio">
+      <div data-role="panel" id="panelp1">
+      	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
+      	<img src="img/cuenta.png" class="elm-cent" width="120px" /><br />
+      	<div class="datos elm-cent">
+      		<img src="img/user.png" class="useri" />
+      		<div>
+      		
+      		<p class="usuario">correo@electronico.com</p>
+      		</div>
+      	</div>
+      
+      	<br /><br />
+       <ul data-role="listview">
+        <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slidedown">Menú</a></li>
+        <li class="menitem" data-icon="false"><a href="#pedidos" data-transition="slideup">Pedidos</a></li>
+        <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
+        <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
+        <li class="menitem" data-icon="false"><a href="#close">Cerrar Sesión</a></li>
+      
+      </ul>
+     </div>
+     <div data-role="header" class="headerb">
+          <a href="#panelp1" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
+          <img class="logoi elm-cent" width="170px"  src="img/menub.png" />
+          <a href="#pedidos" data-transition="slideup" class="cart" ></a> 
+    </div>
+    <div data-role="main" class="ui-content">
+    
+    <a href="#comida"  class="elm-cent" data-transition="slide" ><img width="100%" src="img/food.png" /></a>
+ 	<a href="#bebidasp" id="bebidas" class="elm-cent" data-transition="slide" ><img width="100%" src="img/bebidas.png" /></a>
+ 	<a href="#postresp" id="postres" class="elm-cent" data-transition="slide" ><img width="100%" src="img/dessert.png" /></a>
+ 	  <a href="#variosp" id="varios" class="elm-cent" data-transition="slide" ><img width="100%" src="img/varios.png" /></a>
+ 	
+ 	</div>
+
+
+   
+  </div>
+  <div data-role="page" id="comida">
+	<div data-role="panel" id="panelp2">
+      	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
+      	<img src="img/cuenta.png" class="elm-cent" width="120px" /><br />
+      	<div class="datos elm-cent">
+      		<img src="img/user.png" width="20px" />
+      		<div>
+      		
+      		<p class="usuario">correo@electronico.com</p>
+      		</div>
+      	</div>
+      
+      	<br /><br />
+       <ul data-role="listview">
+        <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slide">Menú</a></li>
+        <li class="menitem" data-icon="false"><a href="#pedidos" data-transition="slideup">Pedidos</a></li>
+        <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
+        <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
+        <li class="menitem" data-icon="false"><a href="#close">Cerrar Sesión</a></li>
+      
+      </ul>
+     </div>
+      <div data-role="header" class="headerb">
+          <a href="#panelp2" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
+          <img class="logoi elm-cent" width="170px"  src="img/comida.png" />
+          <a href="#pedidos" data-transition="slideup" class="cart" ></a> 
+    </div>
+  <div data-role="main" class="ui-content">
+    <div class="lback">
+    	<!--<img src="img/bannerc.png"  width="100%" height="250px"/>-->
+    	<div class="innerl">
+    		<ul id="comlist">
+    			
+    		</ul>
+    		<br /><br />
+    	</div>
+    </div>
+    
+ 	
+ 	</div>
+ </div>
+ <div data-role="page" id="bebidasp">
+	<div data-role="panel" id="panelp3">
+      	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
+      	<img src="img/cuenta.png" class="elm-cent" width="120px" /><br />
+      	<div class="datos elm-cent">
+      		<img src="img/user.png" width="20px" />
+      		<div>
+      		
+      		<p class="usuario">correo@electronico.com</p>
+      		</div>
+      	</div>
+      
+      	<br /><br />
+       <ul data-role="listview">
+        <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slide">Menú</a></li>
+        <li class="menitem" data-icon="false"><a href="#pedidos" data-transition="slideup">Pedidos</a></li>
+        <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
+        <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
+        <li class="menitem" data-icon="false"><a href="#close">Cerrar Sesión</a></li>
+      
+      </ul>
+     </div>
+      <div data-role="header" class="headerb">
+          <a href="#panelp3" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
+          <img class="logoi elm-cent" width="170px"  src="img/comida.png" />
+          <a href="#pedidos" data-transition="slideup" class="cart" ></a> 
+    </div>
+  <div data-role="main" class="ui-content">
+    <div class="lback">
+    	<!--<img src="img/bannerc.png"  width="100%" height="250px"/>-->
+    	<div class="innerl">
+    		<ul id="beblist">
+    			
+    		</ul>
+    		<br /><br />
+    	</div>
+    </div>
+    
+ 	
+ 	</div>
+ </div>
+ <div data-role="page" id="postresp">
+	<div data-role="panel" id="panelp4">
+      	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
+      	<img src="img/cuenta.png" class="elm-cent" width="120px" /><br />
+      	<div class="datos elm-cent">
+      		<img src="img/user.png" width="20px" />
+      		<div>
+      		
+      		<p class="usuario">correo@electronico.com</p>
+      		</div>
+      	</div>
+      
+      	<br /><br />
+       <ul data-role="listview">
+        <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slide">Menú</a></li>
+        <li class="menitem" data-icon="false"><a href="#pedidos" data-transition="slideup">Pedidos</a></li>
+        <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
+        <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
+        <li class="menitem" data-icon="false"><a href="#close">Cerrar Sesión</a></li>
+      
+      </ul>
+     </div>
+      <div data-role="header" class="headerb">
+          <a href="#panelp4" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
+          <img class="logoi elm-cent" width="170px"  src="img/comida.png" />
+          <a href="#pedidos" data-transition="slideup" class="cart" ></a> 
+    </div>
+  <div data-role="main" class="ui-content">
+    <div class="lback">
+    	<!--<img src="img/bannerc.png"  width="100%" height="250px"/>-->
+    	<div class="innerl">
+    		<ul id="poslist">
+    			
+    		</ul>
+    		<br /><br />
+    	</div>
+    </div>
+    
+ 	
+ 	</div>
+ </div>
+ <div data-role="page" id="variosp">
+	<div data-role="panel" id="panelp5">
+      	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
+      	<img src="img/cuenta.png" class="elm-cent" width="120px" /><br />
+      	<div class="datos elm-cent">
+      		<img src="img/user.png" width="20px" />
+      		<div>
+      		
+      		<p class="usuario">correo@electronico.com</p>
+      		</div>
+      	</div>
+      
+      	<br /><br />
+       <ul data-role="listview">
+        <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slide">Menú</a></li>
+        <li class="menitem" data-icon="false"><a href="#pedidos" data-transition="slideup">Pedidos</a></li>
+        <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
+        <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
+        <li class="menitem" data-icon="false"><a href="#close">Cerrar Sesión</a></li>
+      
+      </ul>
+     </div>
+      <div data-role="header" class="headerb">
+          <a href="#panelp5" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
+          <img class="logoi elm-cent" width="170px"  src="img/comida.png" />
+         <a href="#pedidos" data-transition="slideup" class="cart" ></a> 
+    </div>
+  <div data-role="main" class="ui-content">
+    <div class="lback">
+    	<!--<img src="img/bannerc.png"  width="100%" height="250px"/>-->
+    	<div class="innerl">
+    		<ul id="varlist">
+    			
+    		</ul>
+    		<br /><br />
+    	</div>
+    </div>
+    
+ 	
+ 	</div>
+ </div>
+  <div data-role="page" id="pedidos">
+      <div data-role="panel" id="panelp6">
+      	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
+      	<img src="img/cuenta.png" class="elm-cent" width="120px" /><br />
+      	<div class="datos elm-cent">
+      		<img src="img/user.png" width="20px" />
+      		<div>
+      		
+      		<p class="usuario">correo@electronico.com</p>
+      		</div>
+      	</div>
+      
+      	<br /><br />
+       <ul data-role="listview">
+        <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slidedown">Menú</a></li>
+        <li class="menitem" data-icon="false"><a href="#pedidos" data-transition="slideup">Pedidos</a></li>
+        <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
+        <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
+        <li class="menitem" data-icon="false"><a href="#close">Cerrar Sesión</a></li>
+      
+      </ul>
+     </div>
+     <div data-role="header" class="headerb">
+          <a href="#panelp6" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
+          <img class="logoi elm-cent" width="170px"  src="img/pedidos.png" />
+          <a href="#pedidos" data-transition="slideup" class="cart" ></a> 
+    </div>
+    <div data-role="main" class="ui-content">
+    <div class="lback">
+    	<img src="img/peds.png"  width="100%" />
+    	<div class="innerl">
+    		<br />
+    		<div class="headt">
+    		<p>Total de orden (1 artículo)</p>
+    		<h1 id="total">$20.00</h1>
+    		</div>
+    		<ul>
+    			<li><p class="pname">Resumen de orden <span class="price">$20</span></p> </li>
+    			<li><p class="pname">Sandwich <span class="price">$20</span></p> </li>
+    			<li><p class="pname">Subtotal <span class="price">$20</span><br /><span class="ft">Tiempo de entrega</span><span class="tiempoe">20min</span></p> </li>
+    			
+    		</ul><br />
+    		<button type="button" class="confb" ><p>Confirmar</p></button>
+    		<br /><br />
+    	</div>
+    </div>
+ 	
+ 	</div>
+
+
+   
+  </div>
+  <script src="cordova.js" ></script>
+ <script src="js/index.js" ></script>
+ <script src="js/prod.js" ></script>
+
+  <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    
+
+    </script>
+  
+</body>
+
+</html>
