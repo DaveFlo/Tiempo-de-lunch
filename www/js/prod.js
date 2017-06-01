@@ -22,7 +22,7 @@ $(document).ready(function(){
     $.ajax({
 	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
 	type: "POST",
-	data: {comida: 'bebida'},
+	data: {bebida: 'bebida'},
 	
 	success: function(data){
 
@@ -40,7 +40,7 @@ $(document).ready(function(){
     $.ajax({
 	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
 	type: "POST",
-	data: {comida: 'postres'},
+	data: {postres: 'postres'},
 	
 	success: function(data){
 
@@ -58,7 +58,7 @@ $(document).ready(function(){
     $.ajax({
 	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
 	type: "POST",
-	data: {comida: 'varios'},
+	data: {varios: 'varios'},
 	
 	success: function(data){
 

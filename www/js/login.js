@@ -22,22 +22,28 @@ $(document).ready(function(){
    
     
     function checkDB(tx) {
-        tx.executeSql('SELECT * FROM login', [], querySuccess, errorCB);
+    	
+        tx.executeSql('SELECT * FROM login', [], querySuccess, errorCB2);
     }
 
     // Query the success callback
     //
     function querySuccess(tx, results) {
         var len = results.rows.length;
+        console.log(len);
         if(len.length>0){
+        	
         	ban = true;
         }
-        if(ban = true){
+        
+        if(ban == true){
+        	console.log(results.rows.item(0)['id']);
         	window.location = "inicio.html";
         	
         }else{
+        	console.log("ppapapa");
         	var db = window.openDatabase("tlunch", "1.0", "PhoneGap Demo", 200000);
-            db.transaction(populateDB, errorCB, successCB);
+            db.transaction(populateDB, errorCB);
         }
     }
 
@@ -45,6 +51,10 @@ $(document).ready(function(){
     //
     function errorCB(err) {
         console.log("Error processing SQL: "+err.code);
+    }
+    function errorCB2(err) {
+        var db = window.openDatabase("tlunch", "1.0", "PhoneGap Demo", 200000);
+            db.transaction(populateDB, errorCB);
     }
 
     // Transaction success callback
@@ -58,7 +68,7 @@ $(document).ready(function(){
     //
     function onDeviceReady() {
         var db = window.openDatabase("tlunch", "1.0", "PhoneGap Demo", 200000);
-         db.transaction(checkDB, errorCB);
+        db.transaction(checkDB, errorCB);
       
     }
     $("#logForm").submit(function(e){
@@ -81,7 +91,7 @@ $(document).ready(function(){
 	    	user = datos[0];
 	    	school = datos[1];
 	    	var db = window.openDatabase("tlunch", "1.0", "PhoneGap Demo", 200000);
-             db.transaction(loginDB, errorCB, successCB);
+            db.transaction(loginDB, errorCB);
              
 	    	 window.location = "inicio.html";
 	    }else{
