@@ -1,11 +1,11 @@
-
+if(localStorage.getItem("user")!=null){
+    	$.mobile.navigate( "#inicio", { info: "info about the #foo hash" });
+}
 $(document).ready(function(){
     var user="";
     var school="";
     var ban = false;
-    if(localStorage.getItem("user")!=null){
-    	window.location = "inicio.html";
-    }
+    
     $("#logForm").submit(function(e){
 	$("#mess").hide();
 	$("#enter").prop("disabled",true);
@@ -27,8 +27,10 @@ $(document).ready(function(){
 	    	school = datos[1];
 	    	localStorage.setItem("user",user);
             localStorage.setItem("school",school);
-             
-	    	window.location = "inicio.html";
+            $(".usuario").text(localStorage.getItem("user"));
+	    	$.mobile.navigate( "#inicio", { transition : "slide",info: "info about the #foo hash" });
+
+
 	    }else{
             $(".loads").hide();
 	    	$("#mess").text("Usuario o contraseña incorrectos");

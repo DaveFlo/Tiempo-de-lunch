@@ -53,7 +53,8 @@ $(".usuario").text(localStorage.getItem("user"));
     }*/
 
    $("#close").click(function(){
-   	   
+   	       localStorage.clear();
+   	       $.mobile.navigate( "#login", {transition:"pop", info: "info about the #foo hash" });
    });
 
 });
