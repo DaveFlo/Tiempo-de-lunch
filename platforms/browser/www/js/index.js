@@ -52,7 +52,7 @@ $(".usuario").text(localStorage.getItem("user"));
         db.transaction(queryDB, errorCB, successCB);
     }*/
 
-   $("#close").click(function(){
+   $(".close").click(function(){
    	       localStorage.clear();
    	       $.mobile.navigate( "#login", {transition:"pop", info: "info about the #foo hash" });
    });

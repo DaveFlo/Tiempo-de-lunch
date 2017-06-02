@@ -1,5 +1,5 @@
 if(localStorage.getItem("user")!=null){
-    	$.mobile.navigate( "#inicio", { info: "info about the #foo hash" });
+    	$.mobile.navigate( "#inicio", {transition:"pop", info: "info about the #foo hash" });
 }
 $(document).ready(function(){
     var user="";
