@@ -8,12 +8,13 @@ document.addEventListener("backbutton", function(e){
         navigator.app.backHistory()
     }
 }, false);
-    document.addEventListener("deviceready", onDeviceReady, false);
+$(".usuario").text(localStorage.getItem("user"));
+   /*  document.addEventListener("deviceready", onDeviceReady, false);
 
     // Populate the database 
     // Query the database
     //
-    function dropDB(tx) {
+   function dropDB(tx) {
         tx.executeSql('DROP TABLE IF EXISTS login');
         window.location="index.html";
         
@@ -49,11 +50,10 @@ document.addEventListener("backbutton", function(e){
     function onDeviceReady() {
         var db = window.openDatabase("tlunch", "1.0", "PhoneGap Demo", 200000);
         db.transaction(queryDB, errorCB, successCB);
-    }
+    }*/
 
    $("#close").click(function(){
-   	    var db = window.openDatabase("tlunch", "1.0", "PhoneGap Demo", 200000);
-             db.transaction(dropDB, errorCB);
+   	   
    });
 
 });
