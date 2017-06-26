@@ -28,6 +28,7 @@ $(document).ready(function(){
 	    	localStorage.setItem("user",user);
             localStorage.setItem("school",school);
             $(".usuario").text(localStorage.getItem("user"));
+            $(".loads").hide();
 	    	$.mobile.navigate( "#inicio", { transition : "slide",info: "info about the #foo hash" });
 
 
