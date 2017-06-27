@@ -73,14 +73,20 @@ body {
 	margin-top:-1px;
 	float: right;
 }
-.aplus{
+.aplus,.aminus{
 	margin-top:-5px;
 	border: 1px solid orange;
 	padding: 3px 5px;
 	color: orange;
 	float: right;
 }
-.aplus:hover{
+.cants{
+	margin-top:-5px;
+	padding: 3px 5px;
+	
+	float: right;
+}
+.aplus:hover, .aminus:hover{
 	border: 1px solid #fff;
 	color: #fff !important;
 }
@@ -95,6 +101,26 @@ body {
     -o-transform: skewX(-2.5deg)   rotate(-3deg);  ;
     transform: skewX(-2.5deg)  rotate(-3deg);  ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
+}
+.fixAdd{
+	width:100%;
+	
+	position: fixed;
+	bottom: 0;
+	left:0;
+	background: #ff0049;
+}
+.fixAdd button{
+	background: #ff0049 !important;
+	color: #fff;
+	border: none !important;
+	box-shadow: none !important;
+	border-radius:0 !important;
+}
+.fixAdd button:hover{
+	background: #fff !important;
+	color: #ff0049;
+	
 }
 .ft{
 	font-size: 10px;

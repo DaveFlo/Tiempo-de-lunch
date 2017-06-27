@@ -1,13 +1,7 @@
 
 $(document).ready(function(){
-document.addEventListener("backbutton", function(e){
-    if($.mobile.activePage.is('#inicio')){
 
-    }
-    else {
-        navigator.app.backHistory()
-    }
-}, false);
+
 $(".usuario").text(localStorage.getItem("user"));
    /*  document.addEventListener("deviceready", onDeviceReady, false);
 

@@ -5,11 +5,11 @@ $(document).ready(function(){
     var user="";
     var school="";
     var ban = false;
-    function login(){
+    function login(form){
     	$.ajax({
 	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
 	type: "POST",
-	data: new FormData(this),
+	data: new FormData(form),
 	contentType: false,
 	cache: false,
 	processData:false,
@@ -18,6 +18,7 @@ $(document).ready(function(){
 		$(".loads").hide();
 	    if(data.toString()!=="0"){
 	    	var datos = data.toString().split(",");
+	    	console.log("mama"+data);
 	    	user = datos[0];
 	    	school = datos[1];
 	    	localStorage.setItem("user",user);
@@ -39,10 +40,11 @@ $(document).ready(function(){
     }
     $("#logForm").submit(function(e){
 	$("#mess").hide();
+	var form = this;
 	$("#enter").prop("disabled",true);
 	$(".loads").show();
 	e.preventDefault();
-	setTimeout(login,2000);
+	setTimeout(login(form),2000);
    });
 
 });
