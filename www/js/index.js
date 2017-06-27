@@ -56,5 +56,5 @@ $(".usuario").text(localStorage.getItem("user"));
    	       localStorage.clear();
    	       $.mobile.navigate( "#login", {transition:"pop", info: "info about the #foo hash" });
    });
-
+  
 });

@@ -5,13 +5,8 @@ $(document).ready(function(){
     var user="";
     var school="";
     var ban = false;
-    
-    $("#logForm").submit(function(e){
-	$("#mess").hide();
-	$("#enter").prop("disabled",true);
-	$(".loads").show();
-	e.preventDefault();
-	$.ajax({
+    function login(){
+    	$.ajax({
 	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
 	type: "POST",
 	data: new FormData(this),
@@ -20,7 +15,7 @@ $(document).ready(function(){
 	processData:false,
 	async: false,
 	success: function(data){
-		console.log(data);
+		$(".loads").hide();
 	    if(data.toString()!=="0"){
 	    	var datos = data.toString().split(",");
 	    	user = datos[0];
@@ -28,19 +23,26 @@ $(document).ready(function(){
 	    	localStorage.setItem("user",user);
             localStorage.setItem("school",school);
             $(".usuario").text(localStorage.getItem("user"));
-            $(".loads").hide();
+            
 	    	$.mobile.navigate( "#inicio", { transition : "slide",info: "info about the #foo hash" });
 
 
 	    }else{
-            $(".loads").hide();
+           
 	    	$("#mess").text("Usuario o contraseña incorrectos");
 	    	$("#mess").show();
 	    }
 	    $("#enter").prop("disabled",false);
 	}
 
-});
-});
+        });
+    }
+    $("#logForm").submit(function(e){
+	$("#mess").hide();
+	$("#enter").prop("disabled",true);
+	$(".loads").show();
+	e.preventDefault();
+	setTimeout(login,2000);
+   });
 
 });
