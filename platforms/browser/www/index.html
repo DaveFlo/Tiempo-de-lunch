@@ -30,7 +30,7 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *" />
     <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -44,6 +44,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
     <script src="js/jquery-1.11.3.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js" ></script>
     <title>Login</title>
@@ -154,7 +155,7 @@
     	</div>
     </div>
     <div id="addCom" class="fixAdd">
- 		<button>Añadir al Carrito <span>$0.00</span></button>
+ 		<button class="addButton">Añadir al Carrito <span>$0.00</span></button>
  	</div>
  	
  	</div>
@@ -205,7 +206,9 @@
     		<br /><br />
     	</div>
     </div>
-    
+    <div id="addBeb" class="fixAdd">
+ 		<button>Añadir al Carrito <span>$0.00</span></button>
+ 	</div>
  	
  	</div>
  	<div data-role="popup" id="popdb" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
@@ -255,7 +258,9 @@
     		<br /><br />
     	</div>
     </div>
-    
+    <div id="addPos" class="fixAdd">
+ 		<button>Añadir al Carrito <span>$0.00</span></button>
+ 	</div>
  	
  	</div>
  	<div data-role="popup" id="popdp" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
@@ -305,7 +310,9 @@
     		<br /><br />
     	</div>
     </div>
-    
+    <div id="addVar" class="fixAdd">
+ 		<button>Añadir al Carrito <span>$0.00</span></button>
+ 	</div>
  	
  	</div>
  	<div data-role="popup" id="popdv" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
@@ -358,7 +365,66 @@
     			
     			
     		</ul><br />
-    		<button type="button" class="confb" ><p>Confirmar</p></button>
+    		<form id="payform" method="post"></form>
+    		<button id="conOrder" type="button" disabled class="confb" ><p>Confirmar</p></button>
+    		<br /><br />
+    	</div>
+    </div>
+ 	
+ 	</div>
+ 	<div data-role="popup" id="popdch" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+    <div data-role="header" data-theme="a">
+    <h1>Cerrar sesión</h1>
+    </div>
+       <div role="main" class="ui-content">
+        <h3 class="ui-title">¿Esta seguro que desea salir?</h3>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancelar</a>
+        <a  class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b close"  data-transition="flow">Salir</a>
+         </div>
+       </div>
+
+  </div>
+  <div data-role="page" id="pagos">
+      <div data-role="panel" id="panelp6">
+      	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
+      	<img src="img/cuenta.png" class="elm-cent" width="120px" /><br />
+      	<div class="datos elm-cent">
+      		<img src="img/user.png" class="useri" />
+      		<div>
+      		<p class="usuario">correo@electronico.com</p>
+      		</div>
+      	</div>
+      
+      	<br /><br />
+       <ul data-role="listview">
+        <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slidedown">Menú</a></li>
+        <li class="menitem" data-icon="false"><a href="#pedidos" data-transition="slideup">Pedidos</a></li>
+        <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
+        <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
+        <li class="menitem" data-icon="false"><a href="#popdch" data-rel="popup" data-position-to="window" data-transition="pop">Cerrar Sesión</a></li>
+      
+      </ul>
+     </div>
+     <div data-role="header" class="headerb">
+          <a href="#panelp6" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
+          <img class="logoi elm-cent" width="170px"  src="img/pedidos.png" />
+          <a href="#pedidos" data-transition="slideup" class="cart" ></a> 
+    </div>
+    <div data-role="main" class="ui-content">
+    <div class="lback">
+    	<img src="img/peds.png"  width="100%" />
+    	<div class="innerl">
+    		<br />
+    		<div id="total" class="headt">
+    		
+    		</div>
+    		<ul id="pedidoL">
+    			<li><p class="pname">Resumen de orden <span id="totalT" class="price"></span></p> </li>
+    			
+    			
+    		</ul><br />
+    		<form id="payform" method="post"></form>
+    		<button id="conOrder" type="button" disabled class="confb" ><p>Confirmar</p></button>
     		<br /><br />
     	</div>
     </div>
@@ -378,12 +444,14 @@
   </div>
   
   
- 
+  
   <script src="cordova.js"></script>
+  <script src="js/conekta.js"></script>
+  <script src="js/sweetalert.min.js"></script>
   <script src="js/index.js" ></script>
   <script src="js/prod.js" ></script>
   <script src="js/login.js"></script>
-  
+   
 </body>
 
 </html>
