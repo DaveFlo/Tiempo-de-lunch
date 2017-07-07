@@ -1,15 +1,14 @@
 if(localStorage.getItem("user")!=null){
-    	$.mobile.navigate( "#inicio", {transition:"pop", info: "info about the #foo hash" });
+    	$.mobile.navigate( "#inicio", {transition:"pop" });
 }
-$(document).ready(function(){
-    var user="";
+var user="";
     var school="";
     var ban = false;
-    function login(form){
+    function login(){
     	$.ajax({
 	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
 	type: "POST",
-	data: new FormData(form),
+	data: new FormData($("#logForm")[0]),
 	contentType: false,
 	cache: false,
 	processData:false,
@@ -38,13 +37,16 @@ $(document).ready(function(){
 
         });
     }
+$(document).ready(function(){
+    
     $("#logForm").submit(function(e){
+    	e.preventDefault();
 	$("#mess").hide();
 	var form = this;
 	$("#enter").prop("disabled",true);
 	$(".loads").show();
-	e.preventDefault();
-	setTimeout(login(form),2000);
+	
+	setTimeout("login()",3000);
    });
 
 });

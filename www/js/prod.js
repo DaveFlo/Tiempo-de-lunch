@@ -240,11 +240,18 @@ $(document).ready(function(){
   };
   var conektaErrorResponseHandler = function(response) {
 
-swal(response.message_to_purchaser);
+  swal(response.message_to_purchaser);
   };
   $("#conOrder").click(function(){
   	$form = $("#payForm");
-  	Conekta.Token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
+  	$.mobile.navigate( "#pagos", {transition:"turn" });
+  	//Conekta.Token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
   });
-  
+   var date = new Date();
+  var year = parseInt(date.getFullYear());
+  console.log(year);
+  $("#expdate").inputmask("mm/yyyy", {"placeholder": "mm/aaaa",yearrange: { minyear: year+1}});;
+   $("#card").inputmask("9999 9999 9999 9999", {"placeholder": "0000 0000 0000 0000"});
+ $("#vv").inputmask("999", {"placeholder": "999"});
+          
 });

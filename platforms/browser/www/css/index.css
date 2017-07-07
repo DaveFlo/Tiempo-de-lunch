@@ -158,6 +158,25 @@ body {
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
 	
 }
+.innerl form{
+	
+	padding: 10px 25px;
+	 -webkit-transform: skewX(2.5deg) rotate(3deg);  ;
+    -khtml-transform: skewX(2.5deg) rotate(3deg);  ;
+    -moz-transform: skewX(2.5deg)  rotate(3deg);  ;
+    -ms-transform: skewX(2.5deg)  rotate(3deg);  ;
+    -o-transform: skewX(2.5deg)  rotate(3deg);  ;
+    transform: skewX(2.5deg) rotate(3deg);  ;
+    -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
+	
+}
+#payForm input{
+	background: #fff;
+	padding: 5px;
+}
+#payForm label{
+	color: #fff;
+}
 .innerl ul li{
 	 display: flow-root;
 	 color: #fff;
