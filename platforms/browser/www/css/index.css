@@ -35,7 +35,27 @@ body {
     text-transform:uppercase;
     width:100%;
 }
-
+.cardd{
+	display: flex;
+}
+.cardd div{
+  width: 50%;
+}
+.ayudamen{
+	display: table;
+	margin: auto;
+	padding-top: 20px;
+}
+.ayudamen a{
+	padding: 15px 0 ;
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	
+}
+.ayudamen a:hover{
+	color:#ff0049
+}
 /* Portrait layout (default) */
 .app {
     
@@ -174,8 +194,20 @@ body {
 	background: #fff;
 	padding: 5px;
 }
-#payForm label{
+,#conForm input{
+	background: rgba(255,255,255,0.7);
+	padding: 5px;
+}
+#payForm label,#conForm label{
 	color: #fff;
+}
+#conForm {
+	padding: 0 25px;
+}
+#conForm textarea{
+	background: rgba(255,255,255,0.7);
+	min-height: 150px;
+	resize: none;
 }
 .innerl ul li{
 	 display: flow-root;
@@ -391,6 +423,48 @@ body {
 	color: #ff0049 !important;
 }
 .confb p{
+	letter-spacing:1px;
+	margin:0;
+	
+	font-size:18px;
+	margin-bottom: 6px;
+	text-align:center;
+	 -webkit-transform: skewX(2.5deg) rotate(4deg);  ;
+    -khtml-transform: skewX(2.5deg) rotate(4deg);  ;
+    -moz-transform: skewX(2.5deg)  rotate(4deg); ;
+    -ms-transform: skewX(2.5deg)  rotate(4deg); ;
+    -o-transform: skewX(2.5deg)  rotate(4deg); ;
+    transform: skewX(2.5deg)  rotate(4deg); ;
+    -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
+	
+}
+.confn{
+	display:table;
+	margin:auto;
+	font-family: "futuraMC";
+	font-weight:100;
+	margin-top:25px;
+	width:130px !important;
+	background: #ff0049 !important;
+	padding:15px 0px;
+	color: #FFF;
+	 -webkit-transform: skewX(-2.5deg) rotate(-4deg);  ;
+    -khtml-transform: skewX(-2.5deg) rotate(-4deg);  ;
+    -moz-transform: skewX(-2.5deg)  rotate(-4deg); ;
+    -ms-transform: skewX(-2.5deg)  rotate(-4deg); ;
+    -o-transform: skewX(-2.5deg)  rotate(-4deg); ;
+    transform: skewX(-2.5deg)  rotate(-4deg); ;
+    -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
+
+  
+    border: 1px solid #a91e23;
+    transition: all ease 0.5s;
+}
+.confn:active, .confn:hover{
+	background: #fff !important;
+	color: #ff0049 !important;
+}
+.confn p{
 	letter-spacing:1px;
 	margin:0;
 	

@@ -122,6 +122,8 @@ $(document).ready(function(){
     	      localStorage.setItem("cants",JSON.stringify(cants1));
     	      console.log(prices1);
         }
+        $(".cants").text("0");
+        $(this).children().text("$0.00");
     	swal("Listo","Se agrego tu orden al carrito","success");
         $("#pedidoL").html("");
     	 addToCart();
@@ -211,47 +213,100 @@ $(document).ready(function(){
     	}
     });
     if(localStorage.getItem("prods")!=null){
-    	
+    
      addToCart();
     }
     function addToCart(){
     	
     	$("#total").html("");
+    	$("#pedidoL").html("")
     	var total = 0;
+    	var tc = 0;
     	var prices1 =JSON.parse( localStorage.getItem("prices"));
     	var prods1 =JSON.parse( localStorage.getItem("prods"));
     	var cants1 =JSON.parse( localStorage.getItem("cants"));
+    	$("#pedidoL").append('<li><p class="pname">Resumen de orden <span id="totalT" class="price"></span></p> </li>');
     	for(var i=0;i<prices1.length;i++){
-
+            tc  = tc+parseInt(cants1[i]);
     	    total = total + parseInt(prices1[i]);
-    	    $("#pedidoL").append('<li><p class="pname">'+prods1[i]+'<span class="price">$'+parseFloat(prices1[i]).toFixed(2)+'</span></p> </li>');
+    	    $("#pedidoL").append('<li><p class="pname">'+prods1[i]+' ('+cants1[i]+')<span class="price">$'+parseFloat(prices1[i]).toFixed(2)+'</span></p> </li>');
     	}
 
-    	$("#total").append('<p>Total de orden (2 artículo)</p><h1 >$'+total+'</h1>');
+    	$("#total").append('<p>Total de orden ('+tc+' artículo(s))</p><h1 >$'+total+'</h1>');
     	$("#conOrder").prop("disabled",false);
 
     }
    Conekta.setPublicKey('key_L7Psm9dyS6CdPoozJGB6fdQ');
    Conekta.setLanguage("es");  
   var conektaSuccessResponseHandler = function(token) {
-  	swal(token.id);
+  	var $form = $("#payForm");
+  	$form.append($("<input type='hidden' name='conektaTokenId' id='conektaTokenId'>").val(token.id));
+  	
+     var tid =  token.id;
+  	 $.ajax({
+	 url: "http://www.icone-solutions.com/tlunch/conekta.php",
+	 type: "POST",
+	 data: {tid : tid},
+    
+	 success: function(data){
+		console.log(data);
+
+		
+	    if(data.toString()=="0"){
+	      
+    	  swal("Listo","Tu pago ha sido realizado con éxito y tu orden comenzará a prepararse","success");
+            localStorage.removeItem("prods");
+            localStorage.removeItem("prices");
+            localStorage.removeItem("cants");
+            $("#pedidoL").html("");
+            $("#pedidoL").append('<li><p class="pname">Resumen de orden <span id="totalT" class="price"></span></p> </li>');
+            $("#total").html("");
+            $("#conOrder").prop("disabled",true);
+	    }else{
+	    	swal("Error",data.toString(),"error");
+	    }
+  
+    
+
+	}
+
+  });
     //Inserta el token_id en la forma para que se envíe al servidor
-    //$form.append($("<input type='hidden' name='conektaTokenId' id='conektaTokenId'>").val(token.id));
+    //
   };
   var conektaErrorResponseHandler = function(response) {
 
   swal(response.message_to_purchaser);
   };
   $("#conOrder").click(function(){
-  	$form = $("#payForm");
+  
   	$.mobile.navigate( "#pagos", {transition:"turn" });
   	//Conekta.Token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
   });
-   var date = new Date();
+   $("#payOrder").click(function(){
+  	$form = $("#payForm");
+  	swal({
+  title: "¿Estas seguro que deseas realizar esta compra?",
+  text: "Una vez que hayas aceptado se hara el cargo a tu tarjeta",
+  type: "info",
+  showCancelButton: true,
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "Aceptar",
+  showLoaderOnConfirm: true,
+  closeOnConfirm: false,
+  cancelButtonText: "Cancelar",
+},
+function(){
+ 	Conekta.Token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
+});
+  
+  });
+  var date = new Date();
   var year = parseInt(date.getFullYear());
-  console.log(year);
-  $("#expdate").inputmask("mm/yyyy", {"placeholder": "mm/aaaa",yearrange: { minyear: year+1}});;
-   $("#card").inputmask("9999 9999 9999 9999", {"placeholder": "0000 0000 0000 0000"});
- $("#vv").inputmask("999", {"placeholder": "999"});
+
+  $("#expyear").inputmask("y", {yearrange: { minyear: year+1}});
+  $("#expmonth").inputmask("m");
+  $("#card").inputmask("9999 9999 9999 9999", {"placeholder": "0000 0000 0000 0000"});
+  $("#cvv").inputmask("999", {"placeholder": "000"});
           
 });
